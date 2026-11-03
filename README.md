@@ -247,3 +247,22 @@ Hay una falta de ortografía en te_edad_format "fuero" se corrige por "fuera".
 Cambiamos el EditText el texto *"Ejemplo: 6"* por un string con el mismo texto y el string lo escribimos con el nombre hint_edad.
 4. **MainActivity.java**
 Entro en el MainActivity.java y con el *Ctrl + Alt + O*.
+
+## Paso 4 · Añade los mensajes de error
+
+Realizamos los tres nuevos textos en el strings.xml:
+```bash
+<string name="error_vacio">Introduce la edad de tu perro</string>
+<string name="error_no_numero">Introduce un número entero válido</string>
+<string name="error_rango">La edad debe estar entre %1$d Y %2$d años</string>
+```
+### Preguntas
+
+**1. ¿Qué significan %1$d y %2$d?**
+Son formatos que actúan como un comodín para insertar valores numéricos enteros.
+La *d* viene de decimal/integer y el número de antes $d indica la posición del argumento que reemplazará al texto.
+
+**2. ¿En qué orden se rellenan?**
+
+Al colorar 1 o 2 antes del *$d* indicamos el orden con el que reemplazamos los parametros en Java. El número 1 se remplanzara por el primer parámetro que le pases y el 2 por el segundo.
+

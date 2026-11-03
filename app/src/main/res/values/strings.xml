@@ -5,4 +5,7 @@
     <string name="btn_calc">Calcular</string>
     <string name="tu_edad_format">Si tu perro fuera humano tendría %d años</string>
     <string name="hint_edad">Ejemplo: 6</string>
+    <string name="error_vacio">Introduce la edad de tu perro</string>
+    <string name="error_no_numero">Introduce un número entero válido</string>
+    <string name="error_rango">La edad debe estar entre %1$d Y %2$d años</string>
 </resources>

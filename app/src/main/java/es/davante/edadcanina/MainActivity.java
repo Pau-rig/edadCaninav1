@@ -15,6 +15,10 @@ public class MainActivity extends AppCompatActivity {
     private static final int EDAD_MINIMA = 1;
     private static final int EDAD_MAXIMA = 30;
 
+    //Paso 7: Atributos
+    private EditText ageEdit;
+    private TextView resultText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Declaramos variables
-        EditText ageEdit = findViewById(R.id.age_input);
-        TextView resultText = findViewById(R.id.result_text);
+        ageEdit = findViewById(R.id.age_input); //Paso 7: utilizamos directamente el atributo
+        resultText = findViewById(R.id.result_text); //Paso 7: utilizamos directamente el atributo
         Button button1 = findViewById(R.id.btn_calc);
 
 

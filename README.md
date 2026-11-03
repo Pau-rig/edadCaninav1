@@ -280,3 +280,13 @@ Modificamos la etiqueta EditText con los siguientes atributos:
 
 Crear las contánte en el MainActivity y cambiar el siete por el *FACTOR_CANINO*. 
 
+## Paso 7 · Convierte las vistas en atributos de la clase
+
+Realizamos la declaración de los atributos y quitamos la parte declarada de en onCreate() 
+
+### Pregunta
+
+**¿Qué pasaría si dejaras EditText ageEdit = findViewById(...) dentro de onCreate()?**
+
+Pasaría que solo existiría como una variable local y solo se puede utilizar dentro de onCreate() y no podríamos reutilizarlo en otros métodos porque el código daría un error de compilación.
+

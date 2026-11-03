@@ -32,14 +32,14 @@ Al terminar sabrás:
 Antes de arreglar nada, comprueba qué falla. Prueba estas entradas y anota qué pasa:
 
 | Entrada | ¿Qué ocurre? |
-|---|---|
-| *(campo vacío)* | |
-| `abc` | |
-| `3.5` | |
-| `0` | |
-| `-4` | |
-| `99999999999` | |
-| `400000000` | |
+|---|--------------|
+| *(campo vacío)* |              |
+| `abc` |              |
+| `3.5` |              |
+| `0` |              |
+| `-4` |              |
+| `99999999999` |              |
+| `400000000` |              |
 
 > 💡 Cuando la app se cierre, abre el **Logcat** y busca la excepción. ¿Qué método la lanza? ¿Por qué el último caso no cierra la app pero da un resultado absurdo?
 
@@ -191,3 +191,59 @@ Comprueba en GitHub que tu fork tiene ahora dos ramas: `main` y `v2-validacion`.
 - [ ] No quedan números mágicos en `MainActivity`.
 - [ ] `onCreate()` solo prepara la pantalla; la lógica está en `calcularEdad()`.
 - [ ] El trabajo está en la rama `v2-validacion`, no en `main`.
+
+---
+
+# Versión 2 · Correciones
+
+## Paso 1 · Documentando los errores 
+
+| Entrada | ¿Qué ocurre?                                                                                                |
+|---|-------------------------------------------------------------------------------------------------------------|
+| *(campo vacío)* | La app se cierra nada mas pulsar el boton 'Calcular'.                                                       |
+| `abc` | La app se cierra nada mas pulsar el boton 'Calcular'.                                                       |
+| `3.5` | La app se cierra nada mas pulsar el boton 'Calcular'.                                                       |
+| `0` | La app no se cierra, pero muestra que el perro tiene 0 años por lo que el resultado no es valido.           |
+| `-4` | La app no se cierra, pero muestra que el perro tiene -28 años por lo que el resultado no es valido.         |
+| `99999999999` | La app se cierra nada mas pulsar el boton 'Calcular'.                                                       |
+| `400000000` | La app no se cierra, pero muestra que el perro tiene -1494967296 años por lo que el resultado no es valido. |
+
+### Análisis del Logcat
+- **Campo vacío** 
+  - **Método:** El método que genera la excepción lanzada es *java.lang.Integer.parseInt()*.
+  - **Excepción:** La excepción es java.lang.NumberFormatException. Esto ocurre porque Interger.parseInt() no puede convertir cadenas vacías y al no encontrar con un try/catch la app colapsa y se cierra automáticamente.  
+- **abc**
+   - **Método:** El método que genera la excepción lanzada es *java.lang.Integer.parseInt()*.
+   - **Excepción:** La excepción es java.lang.NumberFormatException. Esto ocurre porque Interger.parseInt() no puede convertir letras y al no encontrar con un try/catch la app colapsa y se cierra automáticamente. 
+- **3.5**
+   - **Método:** El método que genera la excepción lanzada es *java.lang.Integer.parseInt()*.
+   - **Excepción:** La excepción es java.lang.NumberFormatException. Esto ocurre porque Interger.parseInt() no puede convertir números decimales y al no encontrar con un try/catch la app colapsa y se cierra automáticamente. 
+- **0**
+   - No salta ninguna excepción.
+   - El resultado es válido en Java, pero el resultado es ilógico porque no contemplamos colocar un rango mínimo.
+- **-4**
+   - No salta ninguna excepción.
+   - El resultado es válido en Java porque entiende el signo negativo y procesa el entero, pero la edad negativa y es ilógica
+- **99999999999**
+   - **Método:** El método que genera la excepción lanzada es *java.lang.Integer.parseInt()*.
+   - **Excepción:** La excepción es java.lang.NumberFormatException. Esto ocurre porque Interger.parseInt() no puede convertir números enteros que excedan el límite de 32 bits y al no encontrar con un try/catch la app colapsa y se cierra automáticamente.
+- **400000000**
+   - No salta ninguna excepción.
+   - El número no supera el límite en Java, pero al multiplicarlo por 7 la cifra sobrepasa el límite máximo del entero. Esto provoca que el número se invierta y de un número negativo.
+
+## Paso 2 · Rama creada
+Creamos la rama con: 
+```bash
+git checkout -b v2-validacion
+```
+
+## Paso 3 · Corregir los fallos
+
+1. **activity_main.xml**
+Se repite el cierre em *</TextView>>* la solucion es borrar el segudo cierre.
+2. **strings.xml**
+Hay una falta de ortografía en te_edad_format "fuero" se corrige por "fuera".
+3. **EditText**
+Cambiamos el EditText el texto *"Ejemplo: 6"* por un string con el mismo texto y el string lo escribimos con el nombre hint_edad.
+4. **MainActivity.java**
+Entro en el MainActivity.java y con el *Ctrl + Alt + O*.

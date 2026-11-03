@@ -9,7 +9,7 @@
     tools:context=".MainActivity"
     tools:ignore="ExtraText">
 
-
+    <!-- Paso 3: Quitar el cierre duplicado del TextView -->
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:textSize="16sp"
         android:gravity="center"
         />
-
+    <!--Paso 3: Modificar el android:hint por un texto extraido del strings.xml-->
     <!--Paso 5: Modificar la etiqueta EditText (android:inputType, android:maxLength, android:gravity y android:importantForAutofill)-->
     <EditText
         android:layout_width="match_parent"

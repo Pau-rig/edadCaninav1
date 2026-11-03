@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+//Paso 3: Eliminar los import no utilizados
+
 public class MainActivity extends AppCompatActivity {
 
     //Paso 6: Constantes
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private void calcularEdad(){
     //Paso 10: Realizar método calcularEdad
         //1. Leer el texto quitando espacios del principio y el final
-        String ageString = ageEdit.getText().toString();
+        String ageString = ageEdit.getText().toString().trim();
 
         //2. Comprobar si el campo está vacío
         if (ageString.isEmpty()){

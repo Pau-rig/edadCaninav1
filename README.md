@@ -242,7 +242,7 @@ git checkout -b v2-validacion
 1. **activity_main.xml**
 Se repite el cierre en *</TextView>>* la solucion es borrar el segudo cierre.
 2. **strings.xml**
-Hay una falta de ortografía en te_edad_format "fuero" se corrige por "fuera".
+Hay una falta de ortografía en tu_edad_format "fuero" se corrige por "fuera".
 3. **EditText**
 Cambiamos el EditText el texto *"Ejemplo: 6"* por un string con el mismo texto y el string lo escribimos con el nombre hint_edad.
 4. **MainActivity.java**
@@ -264,7 +264,7 @@ La *d* viene de decimal/integer y el número de antes $d indica la posición del
 
 **2. ¿En qué orden se rellenan?**
 
-Al colorar 1 o 2 antes del *$d* indicamos el orden con el que reemplazamos los parametros en Java. El número 1 se remplanzara por el primer parámetro que le pases y el 2 por el segundo.
+Al colorar 1 o 2 antes del *$d* indicamos el orden con el que reemplazamos los parámetros en Java. El número 1 se reemplanzará por el primer parámetro que le pases y el 2 por el segundo.
 
 ## Paso 5 · Restringe la entrada desde el layout
 Modificamos la etiqueta EditText con los siguientes atributos:
@@ -278,7 +278,7 @@ Modificamos la etiqueta EditText con los siguientes atributos:
 
 ## Paso 6 · Sustituye los números mágicos por constantes
 
-Crear las contánte en el MainActivity y cambiar el siete por el *FACTOR_CANINO*. 
+Crear las constantes en el MainActivity y cambiar el siete por el *FACTOR_CANINO*. 
 
 ## Paso 7 · Convierte las vistas en atributos de la clase
 
@@ -292,11 +292,11 @@ Pasaría que solo existiría como una variable local y solo se puede utilizar de
 
 ## Paso 8 · Saca la lógica del botón a un método
 
-Realizamos la simplification del *setClickListenaer* llevando toda la lógica a un método calcularEdad().
+Realizamos la simplification del *setOnClickListener* llevando toda la lógica a un método calcularEdad().
 
 ## Paso 9 · Crea un método para mostrar errores
 
-Implementar el método mostraeError para que el texto muestra un mensaje de error, se despliega la pantalla automáticamente hacia el campo si no está visible y limpie cualquier cálculo previo que hubiera en la pantalla. 
+Implementar el método mostrarError para que el texto muestra un mensaje de error, se despliega la pantalla automáticamente hacia el campo si no está visible y limpie cualquier cálculo previo que hubiera en la pantalla. 
 
 ## Paso 10 · Valida la entrada en calcularEdad()
 
@@ -310,13 +310,15 @@ Al fijar el máximo en 30 el resultado nunca pasará a más de 210. Con esto no 
 
 ## Paso 11 · Vuelve a probar
 
-| Entrada | Resultado esperado | Resultado obtenido                                                                                           |
-|---|---|--------------------------------------------------------------------------------------------------------------|
-| *(vacío)* | Error: "Introduce la edad de tu perro" | Muestra el campo en rojo y te muestra un mensaje de error para que introduzcas la edad                       |
+| Entrada | Resultado esperado | Resultado obtenido                                                                                          |
+|---|---|-------------------------------------------------------------------------------------------------------------|
+| *(vacío)* | Error: "Introduce la edad de tu perro" | Muestra el campo en rojo y te muestra un mensaje de error para que introduzcas la edad                      |
 | `0` | Error: "La edad debe estar entre 1 y 30 años" | Muestra el campo en rojo y te muestra un mensaje de error indicando que la edad tiene que estar entre 1 y 30 |
 | `31` | Error de rango | Muestra el campo en rojo y te muestra un mensaje de error indicando que la edad tiene que estar entre 1 y 30 |
-| `1` | "Si tu perro fuera humano tendría 7 años" | Muestra exastamente lo que esperavamos. |
-| `30` | "Si tu perro fuera humano tendría 210 años" | Muestra exastamente lo que esperavamos. |
+| `1` | "Si tu perro fuera humano tendría 7 años" | Muestra exactamente lo que esperábamos.                                                                     |
+| `30` | "Si tu perro fuera humano tendría 210 años" | Muestra exactamente lo que esperábamos.                                                                     |
 
 Comprobamos que funcione los try/catch y cuando escribimos abc muestra el mensaje "Introduce un número entero válido" sin que se cierre la app.
 
+## Paso 12 · Guarda y sube tu trabajo
+Guardamos y subimos el trabajo

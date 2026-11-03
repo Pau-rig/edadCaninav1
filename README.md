@@ -297,3 +297,13 @@ Realizamos la simplification del *setClickListenaer* llevando toda la lógica a 
 ## Paso 9 · Crea un método para mostrar errores
 
 Implementar el método mostraeError para que el texto muestra un mensaje de error, se despliega la pantalla automáticamente hacia el campo si no está visible y limpie cualquier cálculo previo que hubiera en la pantalla. 
+
+## Paso 10 · Valida la entrada en calcularEdad()
+
+Realizamos el contenido del método calcularEdad().
+
+### Pregunta
+
+**¿Por qué limitar la edad a 30 evita también el desbordamiento que viste en el Paso 1?**
+
+Al fijar el máximo en 30 el resultado nunca pasará a más de 210. Con esto no superará el máximo de un tipo int en Java por lo que no se realizara el desbordamiento que comprobamos en el Paso 1.

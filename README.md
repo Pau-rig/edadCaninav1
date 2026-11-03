@@ -240,7 +240,7 @@ git checkout -b v2-validacion
 ## Paso 3 · Corregir los fallos
 
 1. **activity_main.xml**
-Se repite el cierre em *</TextView>>* la solucion es borrar el segudo cierre.
+Se repite el cierre en *</TextView>>* la solucion es borrar el segudo cierre.
 2. **strings.xml**
 Hay una falta de ortografía en te_edad_format "fuero" se corrige por "fuera".
 3. **EditText**
@@ -265,4 +265,14 @@ La *d* viene de decimal/integer y el número de antes $d indica la posición del
 **2. ¿En qué orden se rellenan?**
 
 Al colorar 1 o 2 antes del *$d* indicamos el orden con el que reemplazamos los parametros en Java. El número 1 se remplanzara por el primer parámetro que le pases y el 2 por el segundo.
+
+## Paso 5 · Restringe la entrada desde el layout
+Modificamos la etiqueta EditText con los siguientes atributos:
+
+| Atributo | Para qué sirve |
+|---|---|
+| `inputType="number"` | Muestra el teclado numérico: sin letras, sin signo menos ni decimales. |
+| `maxLength="2"` | No deja escribir más de 2 cifras. |
+| `gravity="center"` | Centra el número en el campo. |
+| `importantForAutofill="no"` | Evita que el sistema ofrezca autocompletar. |
 

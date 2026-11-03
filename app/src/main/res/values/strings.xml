@@ -3,8 +3,11 @@
     <string name="txt_titulo">Convertidor de edad canina</string>
     <string name="input_age">Introduzca la edad de su perro:</string>
     <string name="btn_calc">Calcular</string>
+    <!-- Paso 3: Corregir 'fuero' por 'fuera' en el texto -->
     <string name="tu_edad_format">Si tu perro fuera humano tendría %d años</string>
+    <!-- Paso 3: introducir un string (hint_edad) -->
     <string name="hint_edad">Ejemplo: 6</string>
+    <!-- Paso 4: introducir 3 string de error (error_vacio, error_no_numero) -->
     <string name="error_vacio">Introduce la edad de tu perro</string>
     <string name="error_no_numero">Introduce un número entero válido</string>
     <string name="error_rango">La edad debe estar entre %1$d Y %2$d años</string>

@@ -39,6 +39,7 @@
         android:gravity="center"
         />
 
+    <!--Paso 5: Modificar la etiqueta EditText (android:inputType, android:maxLength, android:gravity y android:importantForAutofill)-->
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,7 +47,10 @@
         android:textSize="48sp"
         android:hint="@string/hint_edad"
         android:id="@+id/age_input"
-        />
+        android:inputType= "number"
+        android:maxLength="2"
+        android:gravity="center"
+        android:importantForAutofill="no"/>
 
  <TextView
      android:layout_width="match_parent"

@@ -290,3 +290,6 @@ Realizamos la declaración de los atributos y quitamos la parte declarada de en 
 
 Pasaría que solo existiría como una variable local y solo se puede utilizar dentro de onCreate() y no podríamos reutilizarlo en otros métodos porque el código daría un error de compilación.
 
+## Paso 8 · Saca la lógica del botón a un método
+
+Realizamos la simplification del *setClickListenaer* llevando toda la lógica a un método calcularEdad()

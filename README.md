@@ -307,3 +307,16 @@ Realizamos el contenido del método calcularEdad().
 **¿Por qué limitar la edad a 30 evita también el desbordamiento que viste en el Paso 1?**
 
 Al fijar el máximo en 30 el resultado nunca pasará a más de 210. Con esto no superará el máximo de un tipo int en Java por lo que no se realizara el desbordamiento que comprobamos en el Paso 1.
+
+## Paso 11 · Vuelve a probar
+
+| Entrada | Resultado esperado | Resultado obtenido                                                                                           |
+|---|---|--------------------------------------------------------------------------------------------------------------|
+| *(vacío)* | Error: "Introduce la edad de tu perro" | Muestra el campo en rojo y te muestra un mensaje de error para que introduzcas la edad                       |
+| `0` | Error: "La edad debe estar entre 1 y 30 años" | Muestra el campo en rojo y te muestra un mensaje de error indicando que la edad tiene que estar entre 1 y 30 |
+| `31` | Error de rango | Muestra el campo en rojo y te muestra un mensaje de error indicando que la edad tiene que estar entre 1 y 30 |
+| `1` | "Si tu perro fuera humano tendría 7 años" | Muestra exastamente lo que esperavamos. |
+| `30` | "Si tu perro fuera humano tendría 210 años" | Muestra exastamente lo que esperavamos. |
+
+Comprobamos que funcione los try/catch y cuando escribimos abc muestra el mensaje "Introduce un número entero válido" sin que se cierre la app.
+

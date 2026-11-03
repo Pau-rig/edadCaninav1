@@ -194,9 +194,9 @@ Comprueba en GitHub que tu fork tiene ahora dos ramas: `main` y `v2-validacion`.
 
 ---
 
-# Versión 2 · Correciones
+# Versión 2 · Correcciones
 
-## Paso 1 · Documentando los errores 
+## Paso 1 · Rompe la app (a propósito)
 
 | Entrada | ¿Qué ocurre?                                                                                                |
 |---|-------------------------------------------------------------------------------------------------------------|
@@ -237,7 +237,7 @@ Creamos la rama con:
 git checkout -b v2-validacion
 ```
 
-## Paso 3 · Corregir los fallos
+## Paso 3 · Corrige los fallos que ya trae la v1
 
 1. **activity_main.xml**
 Se repite el cierre en *</TextView>>* la solucion es borrar el segudo cierre.
@@ -275,4 +275,8 @@ Modificamos la etiqueta EditText con los siguientes atributos:
 | `maxLength="2"` | No deja escribir más de 2 cifras. |
 | `gravity="center"` | Centra el número en el campo. |
 | `importantForAutofill="no"` | Evita que el sistema ofrezca autocompletar. |
+
+## Paso 6 · Sustituye los números mágicos por constantes
+
+Crear las contánte en el MainActivity y cambiar el siete por el *FACTOR_CANINO*. 
 

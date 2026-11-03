@@ -292,4 +292,8 @@ Pasaría que solo existiría como una variable local y solo se puede utilizar de
 
 ## Paso 8 · Saca la lógica del botón a un método
 
-Realizamos la simplification del *setClickListenaer* llevando toda la lógica a un método calcularEdad()
+Realizamos la simplification del *setClickListenaer* llevando toda la lógica a un método calcularEdad().
+
+## Paso 9 · Crea un método para mostrar errores
+
+Implementar el método mostraeError para que el texto muestra un mensaje de error, se despliega la pantalla automáticamente hacia el campo si no está visible y limpie cualquier cálculo previo que hubiera en la pantalla. 

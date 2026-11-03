@@ -36,8 +36,20 @@ public class MainActivity extends AppCompatActivity {
         //Paso 8: simplificar el botón con un método
         button1.setOnClickListener(view -> calcularEdad());
     }
-    //Paso 7: crear método
+    //Paso 8: crear método
     private void calcularEdad(){
 
     }
+
+    //Paso 9: Método errores
+    private void mostrarError(String mensaje){
+        //1. Error EditText
+        ageEdit.setError(mensaje);
+        //2. Foco en el EditText para saber del error
+        ageEdit.requestFocus();
+        //3. Borrar el resultado anterior del TextView
+        resultText.setText("");
+    }
+
+
 }

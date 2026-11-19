@@ -26,7 +26,7 @@ android {
         }
     }
 
-    //Paso 1: Creo el buildFeatures para activar el Data Binding
+    //v3_Paso 1: Creo el buildFeatures para activar el Data Binding
     buildFeatures{
         dataBinding = true
     }

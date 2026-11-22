@@ -3,6 +3,7 @@ package es.davante.edadcanina;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -11,12 +12,17 @@ import es.davante.edadcanina.databinding.ActivityMainBinding;
 
 import es.davante.edadcanina.databinding.ActivityMainBinding;
 import es.davante.edadcanina.modelo.EdadCaninaModelo;
+import es.davante.edadcanina.modelo.Validacion;
 // v3_Paso 5: Ya no es necesario
 //import es.davante.edadcanina.modelo.Validacion;
 
 //Paso 3: Eliminar los import no utilizados
 
 public class MainActivity extends AppCompatActivity {
+
+    //v3_Paso 7: Claves constantes para guardar y recuparar al girar la pantalla
+    private static final String CLAVE_EDAD_TEXTO = "clave_edad_texto";
+    private static final String CLAVE_CALCULANDO = "clave_calculado";
 
 // v_3 Paso 3: Las constantes se movieron a EdadCaninaModelo
     //Paso 6: Constantes
@@ -55,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
         //v3_Paso 3: Iniciar el modelo
         modelo = new EdadCaninaModelo();
 
+        //v3_Paso 7: Si giramos la pantalla lo restaura al estado de antes
+        if (savedInstanceState != null){
+            restaurarEstado(savedInstanceState);
+        }
+
         //v3_Paso 4: Entregamos el modelo al binding para que la vista lo observe
         binding.setModelo(modelo);
 
@@ -69,10 +80,31 @@ public class MainActivity extends AppCompatActivity {
     //v3_Paso 2: Accedemos directamente al boton desde binding
         //binding.btnCalc.setOnClickListener(view -> calcularEdad());
 
-        //v_Paso 5: el listener
-        binding.btnCalc.setOnClickListener(view -> modelo.calcular());
+        //v3_Paso 5: el listener
+        //v3_Paso 6: ya no es necesario
+        //binding.btnCalc.setOnClickListener(view -> modelo.calcular());
 
     }
+    // v3_Paso 7: Metodos
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState){
+        super.onSaveInstanceState(outState);
+
+        outState.putString(CLAVE_EDAD_TEXTO, modelo.getEdadTexto());
+        outState.putBoolean(CLAVE_CALCULANDO, modelo.getValidacion() != Validacion.SIN_CALCULAR);
+    }
+
+    private void restaurarEstado(Bundle savedInstanceState){
+        String textoGuardado = savedInstanceState.getString(CLAVE_EDAD_TEXTO, "");
+        boolean yaCalculado = savedInstanceState.getBoolean(CLAVE_CALCULANDO, false);
+
+        modelo.setEdadTexto(textoGuardado);
+        if (yaCalculado){
+            modelo.calcular();
+        }
+    }
+
+
     //v3_Paso 5: Ya no es necesario porque se a movido a AdaptadoresVista
     //Paso 8: crear método
     //private void calcularEdad(){

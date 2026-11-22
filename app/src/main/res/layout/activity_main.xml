@@ -4,6 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- v3_Paso 4: Bloque data para conectar la vista con el EdadCaninaModelo -->
+    <data>
+        <import type="android.view.View"/>
+        <import type="es.davante.edadcanina.modelo.Validacion"/>
+        <variable
+            name="modelo"
+            type="es.davante.edadcanina.modelo.EdadCaninaModelo" />
+    </data>
+
+
 
 <androidx.appcompat.widget.LinearLayoutCompat
     android:id="@+id/main"
@@ -44,18 +54,21 @@
         />
     <!--Paso 3: Modificar el android:hint por un texto extraido del strings.xml-->
     <!--Paso 5: Modificar la etiqueta EditText (android:inputType, android:maxLength, android:gravity y android:importantForAutofill)-->
+    <!-- v3_Paso 4: Enlaces bidireccionales -->
     <EditText
+        android:id="@+id/age_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:textSize="48sp"
         android:hint="@string/hint_edad"
-        android:id="@+id/age_input"
         android:inputType= "number"
         android:maxLength="2"
         android:gravity="center"
-        android:importantForAutofill="no"/>
+        android:importantForAutofill="no"
+        android:text="@={modelo.edadTexto}"/>
 
+    <!-- v3_Paso 4: Enlaces bidireccionales -->
  <TextView
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
@@ -63,6 +76,8 @@
      android:gravity="center"
      android:layout_marginTop="20dp"
      android:id="@+id/result_text"
+     android:text="@{@string/tu_edad_format(modelo.edadHumana)}"
+     android:visibility="@{modelo.validacion == Validacion.OK ? View.VISIBLE : View.INVISIBLE}"
      />
 
     <Button

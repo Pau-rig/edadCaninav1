@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         //v3_Paso 3: Iniciar el modelo
         modelo = new EdadCaninaModelo();
 
+        //v3_Paso 4: Entregamos el modelo al binding para que la vista lo observe
+        binding.setModelo(modelo);
+
 
         // Implementar el botón (setOnClickListener)
         //Paso 8: simplificar el botón con un método
@@ -63,15 +66,17 @@ public class MainActivity extends AppCompatActivity {
     }
     //Paso 8: crear método
     private void calcularEdad(){
+    // v3_Paso 4: Yo no necisatos leer el EditText porque tenemos @={modelo.edadTexto}
     // v3_Paso 3: Pasamos la entrada al modelo y delegamos para que valide
-        modelo.setEdadTexto(binding.ageInput.getText().toString());
+        //modelo.setEdadTexto(binding.ageInput.getText().toString());
         Validacion resultado = modelo.calcular();
 
+    //v3_Paso 4: Ya no llamamos al binding porque ahora se actualiza solo
     //v3_Paso 3: Pintamos el resultado
         switch (resultado){
             case OK:
                 binding.ageInput.setError(null);
-                binding.resultText.setText(getString(R.string.tu_edad_format,modelo.getEdadHumana()));
+                //binding.resultText.setText(getString(R.string.tu_edad_format,modelo.getEdadHumana()));
                 break;
             case VACIO:
                 mostrarError(getString(R.string.error_vacio));
@@ -86,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case SIN_CALCULAR:
                 binding.ageInput.setError(null);
-                binding.resultText.setText("");
+                //binding.resultText.setText("");
                 break;
         }
 
@@ -144,7 +149,8 @@ public class MainActivity extends AppCompatActivity {
         //v3_Paso 2: cambiar a binding
         binding.ageInput.setError(mensaje);
         binding.ageInput.requestFocus();
-        binding.resultText.setText("");
+        //v3_Paso 4: Ya no borramos el resultText a mano
+        //binding.resultText.setText("");
 
     }
 

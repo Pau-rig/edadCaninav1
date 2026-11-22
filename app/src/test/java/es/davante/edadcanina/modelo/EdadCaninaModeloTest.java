@@ -1,6 +1,9 @@
 package es.davante.edadcanina.modelo;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import androidx.databinding.Observable;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -60,6 +63,25 @@ public class EdadCaninaModeloTest {
         assertEquals(Validacion.SIN_CALCULAR, modelo.getValidacion());
         assertEquals(0, modelo.getEdadHumana());
 
+    }
+
+    //v3_Paso 4: NUeva Prueba Test para verificar que el modelo avisa
+
+    @Test
+    public void calcular_noticaCambio(){
+        final boolean[] notificado = {false};
+        modelo.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable sender, int propertyId) {
+                notificado[0] = true;
+            }
+        });
+
+        modelo.setEdadTexto("6");
+        notificado[0] = false;
+        modelo.calcular();
+
+        assertTrue(notificado[0]);
     }
 
 

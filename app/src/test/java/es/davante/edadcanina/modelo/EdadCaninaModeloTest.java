@@ -84,5 +84,20 @@ public class EdadCaninaModeloTest {
         assertTrue(notificado[0]);
     }
 
+    //v3_Reto: Caso raros
+    @Test
+    public void edadConCeroALaIzaquierda_esValida(){
+        modelo.setEdadTexto("05");
+        assertEquals(Validacion.OK, modelo.calcular());
+        assertEquals(35, modelo.getEdadHumana());
+    }
+
+    @Test
+    public void edadConsignPositivo_esValidad(){
+        modelo.setEdadTexto("+5");
+        assertEquals(Validacion.OK, modelo.calcular());
+        assertEquals(35, modelo.getEdadHumana());
+    }
+
 
 }

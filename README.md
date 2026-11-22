@@ -322,3 +322,47 @@ Comprobamos que funcione los try/catch y cuando escribimos abc muestra el mensaj
 
 ## Paso 12 · Guarda y sube tu trabajo
 Guardamos y subimos el trabajo
+
+
+# Versión 3 · Mejoras
+
+## 1. Estructura
+
+- **es.davante.edadcanina**
+  - **es.davante.edadcanina.controlador**
+    - EdadCaninaControlador
+  - **es.davante.edadcanina.modelo**
+    - Validacion.java
+    - EdadCaninaModelo.java
+  - **es.davante.edadcanina.vista**
+    - AdaptadoresVista.java
+  - **MainActivity**
+
+## 2. Reto implementado: Casos raros
+
+Implementamos los retos y analizamos he elegido Casos Raros:
+
+Ambos valores repersentan el numero entero de 5 por lo que entran dentro de los parametros de la edad que hemos estrablecio (1-30).
+Por ello en la aplicacion nos devolvera 35 en años humanos.
+
+Para verificarlo he añadido en el test unitario dos pruebas que comprueban en estos casos.
+
+## 3. Preguntas
+
+1. ¿Qué diferencias hay entra @{...} y @={...}?
+
+La diferencia es que en el caso de **@{...}** el enlace es unidirectional es decir que va en un solo sentido del Modela a la Vista esto quiere decir que la vista lee el valor y mostrarlo en la pantalla, pero no se puede modificar en el modelo.
+
+Mientras que @={...} va en ambos sentidos por lo que en la vista si es posible modificar 
+
+2. ¿Qué ocurre, paso a paso, desde que pulsas Calcular hasta que aparece «42»?
+Primero al escribir 6 en el EditText el enlace bidirecccional de edadText actualiza el edadTexto que está en la clase EdadCaninaModelo.
+Segundo cuando pulsamos el botón de calcular, se ejecuta el método de calcular onClacularClick que está en la clase EdadCaninaControlador.
+Al controlador le llegan estas instrucciones y las traduce como una orden para llamar al metodo modelo.clacular.
+Ahora el modelo comprueba que cumplatodos los requisitos antes de calcualar la edad con los valores que hemos establecido (entre 1-30, la multiplicacion 6 * 7) después actualiza la edadHumana y lo confirma que está bien.
+Con el cambio de los valores el modelo tiene que avisar a los observadores mediante notify.
+El DataBinding recibe las notificaciones y repinta automaticamente el TextView con el texto cambiado a 42 años podiendose ver, mientras que se limpia cualquier error previo en el EditText.
+
+3. ¿Qué cambiarías para que el factor fuera 6 en vez de 7, y por qué solo tocas un fichero?
+
+Para poder cambiarlo solo tendría que ir al modelo y cambiar el FACTOR_CANINO de un 7 a un 6. esto es porque hemos segido el patron MVC para que todas las reglas del como funciona la aplicación se encuentran en el modelo en vez de estar repartidas por todas las clases.

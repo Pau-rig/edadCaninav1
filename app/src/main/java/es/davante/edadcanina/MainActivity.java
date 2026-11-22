@@ -10,7 +10,8 @@ import es.davante.edadcanina.databinding.ActivityMainBinding;
 
 import es.davante.edadcanina.databinding.ActivityMainBinding;
 import es.davante.edadcanina.modelo.EdadCaninaModelo;
-import es.davante.edadcanina.modelo.Validacion;
+// v3_Paso 5: Ya no es necesario
+//import es.davante.edadcanina.modelo.Validacion;
 
 //Paso 3: Eliminar los import no utilizados
 
@@ -62,15 +63,21 @@ public class MainActivity extends AppCompatActivity {
         //button1.setOnClickListener(view -> calcularEdad());
 
     //v3_Paso 2: Accedemos directamente al boton desde binding
-        binding.btnCalc.setOnClickListener(view -> calcularEdad());
+        //binding.btnCalc.setOnClickListener(view -> calcularEdad());
+
+        //v_Paso 5: el listener
+        binding.btnCalc.setOnClickListener(view -> modelo.calcular());
+
     }
+    //v3_Paso 5: Ya no es necesario porque se a movido a AdaptadoresVista
     //Paso 8: crear método
-    private void calcularEdad(){
+    //private void calcularEdad(){
     // v3_Paso 4: Yo no necisatos leer el EditText porque tenemos @={modelo.edadTexto}
     // v3_Paso 3: Pasamos la entrada al modelo y delegamos para que valide
         //modelo.setEdadTexto(binding.ageInput.getText().toString());
-        Validacion resultado = modelo.calcular();
+        //Validacion resultado = modelo.calcular();
 
+    /*
     //v3_Paso 4: Ya no llamamos al binding porque ahora se actualiza solo
     //v3_Paso 3: Pintamos el resultado
         switch (resultado){
@@ -154,5 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+     */
 
 }

@@ -55,6 +55,7 @@
     <!--Paso 3: Modificar el android:hint por un texto extraido del strings.xml-->
     <!--Paso 5: Modificar la etiqueta EditText (android:inputType, android:maxLength, android:gravity y android:importantForAutofill)-->
     <!-- v3_Paso 4: Enlaces bidireccionales -->
+    <!-- v3_Paso 5: Añadiendo app:error para que se limpie o pinte automaticamente -->
     <EditText
         android:id="@+id/age_input"
         android:layout_width="match_parent"
@@ -66,7 +67,8 @@
         android:maxLength="2"
         android:gravity="center"
         android:importantForAutofill="no"
-        android:text="@={modelo.edadTexto}"/>
+        android:text="@={modelo.edadTexto}"
+        app:errorValidacion="@{modelo.validacion}"/>
 
     <!-- v3_Paso 4: Enlaces bidireccionales -->
  <TextView

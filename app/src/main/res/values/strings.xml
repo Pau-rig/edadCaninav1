@@ -11,4 +11,8 @@
     <string name="error_vacio">Introduce la edad de tu perro</string>
     <string name="error_no_numero">Introduce un número entero válido</string>
     <string name="error_rango">La edad debe estar entre %1$d Y %2$d años</string>
+
+    <!--v3_Paso 6: Añadir texto del boton Limpiar -->
+    <string name="bt_Limpiar">Limpiar</string>
+
 </resources>

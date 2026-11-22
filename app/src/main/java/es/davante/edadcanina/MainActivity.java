@@ -6,6 +6,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import es.davante.edadcanina.controlador.EdadCaninaControlador;
 import es.davante.edadcanina.databinding.ActivityMainBinding;
 
 import es.davante.edadcanina.databinding.ActivityMainBinding;
@@ -57,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
         //v3_Paso 4: Entregamos el modelo al binding para que la vista lo observe
         binding.setModelo(modelo);
 
+        //v3_paso 6: Creamos el controlador conectándolo
+        EdadCaninaControlador controlador = new EdadCaninaControlador(modelo);
+        binding.setControlador(controlador);
 
         // Implementar el botón (setOnClickListener)
         //Paso 8: simplificar el botón con un método

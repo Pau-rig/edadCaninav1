@@ -126,6 +126,11 @@ public class EdadCaninaModelo extends BaseObservable {
 
     }
 
-
+    //v3_Paso 6: Es para restablecer el modelo después de pulsar limpiar
+    public void limpiar(){
+        setEdadTexto("");
+        setEdadHumana(0);
+        setValidacion(Validacion.SIN_CALCULAR);
+    }
 
 }
